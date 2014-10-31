@@ -1,0 +1,9 @@
+*.fa
+*.fq
+*.fasta
+*.fastq
+*.fastq.gz
+*.fasta.gz
+*.keep
+*.pyc
+*.prof
