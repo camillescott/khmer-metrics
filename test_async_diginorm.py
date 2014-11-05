@@ -17,11 +17,12 @@ def write_read(record, outfp):
 
 def main():
     fn = sys.argv[1]
+    nthreads = int(sys.argv[2])
     ht = khmer.new_counting_hash(20, 1e8, 4)
     async = khmer.AsyncDiginorm(ht)
 
     print "Created ht, AsyncDiginorm object. Starting processor threads..."
-    async.start(fn, 5, 4)
+    async.start(fn, 5, nthreads)
 
     print "Processors started, start popping results..."
 
