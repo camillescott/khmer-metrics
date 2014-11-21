@@ -1,10 +1,13 @@
 all: abstract.pdf about.pdf
 
-abstract.pdf: abstract.md
-	pandoc -r markdown+yaml_metadata_block -s -S --latex-engine=pdflatex --template=latex.tpl abstract.md -o abstract.pdf
+#abstract.pdf: abstract.md
+#	pandoc -r markdown+yaml_metadata_block -s -S --latex-engine=pdflatex --template=latex.tpl abstract.md -o abstract.pdf
 
 about.pdf: about.md
 	pandoc -r markdown+yaml_metadata_block -s -S --latex-engine=pdflatex --template=latex.tpl $< -o $@
+
+progress_report.pdf: progress_report.md
+	pandoc -r markdown+yaml_metadata_block -s -S --latex-engine=pdflatex --template=latex.tpl $< -o $@	
 
 diginorm_async.prof:
 	python -m yep -o $@ -- `which normalize-by-median.py` --async -C 5 -k 20 -x 1e9 test-ecoli-1m.fa
