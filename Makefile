@@ -7,7 +7,7 @@ about.pdf: about.md
 	pandoc -r markdown+yaml_metadata_block -s -S --latex-engine=pdflatex --template=latex.tpl $< -o $@
 
 progress_report.pdf: progress_report.md
-	pandoc -r markdown+yaml_metadata_block -s -S --latex-engine=pdflatex --template=latex.tpl $< -o $@	
+	pandoc -r markdown+yaml_metadata_block+table_captions+simple_tables -s -S --latex-engine=pdflatex --bibliograph=omics.bib --template=latex.tpl $< -o $@	
 
 diginorm_async.prof:
 	python -m yep -o $@ -- `which normalize-by-median.py` --async -C 5 -k 20 -x 1e9 test-ecoli-1m.fa
